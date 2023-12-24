@@ -1,2 +1,2 @@
 # PythonLessonTask_django
-python课程django 开发 web 网站 任务
+python课程django 开发web网站任务

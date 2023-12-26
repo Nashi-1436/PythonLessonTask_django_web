@@ -7,4 +7,4 @@
  添加requirements.txt 文件  修复了访客图片显示 登录主题跳转的问题
 
 # v4 
- 添加docker
+ 添加docker github

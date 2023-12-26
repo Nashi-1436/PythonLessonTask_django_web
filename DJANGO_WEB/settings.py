@@ -79,16 +79,30 @@ WSGI_APPLICATION = 'DJANGO_WEB.wsgi.application'
 #     }
 # }
 
+# 使用环境变量来获取数据库连接配置 使用docker
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangotest',  # 数据库名字
-        'USER': 'root',
-        'PASSWORD': 'qweqwe',
-        'HOST': '127.0.0.1',  # 那台机器安装了MySQL
-        'PORT': 3306,
+        'NAME': os.environ.get('DJANGO_DB_NAME', 'djangotest'),
+        'USER': os.environ.get('DJANGO_DB_USER', 'root'),
+        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', 'qweqwe'),
+        'HOST': os.environ.get('DJANGO_DB_HOST', 'db'),
+        'PORT': os.environ.get('DJANGO_DB_PORT', '3306'),
     }
 }
+
+
+# 原生databases
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'djangotest',  # 数据库名字
+#         'USER': 'root',
+#         'PASSWORD': 'qweqwe',
+#         'HOST': '127.0.0.1',  # 那台机器安装了MySQL
+#         'PORT': 3306,
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
